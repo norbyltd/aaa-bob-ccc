@@ -1,10 +1,10 @@
 stage('Unit Tests') {
   steps {
     parallel
-      'Jasmine': {
+      'Jasmine' {
         sh 'gulp karma-tests-ci'
       },
-      'Mocha': {
+      'Mocha' {
         sh 'gulp mocha-tests'
       }
   }
