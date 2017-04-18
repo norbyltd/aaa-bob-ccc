@@ -1,17 +1,21 @@
-stage('Unit Tests') {
-  steps {
-    parallel
-      'Jasmine' {
-        sh 'gulp karma-tests-ci'
-      },
-      'Mocha' {
-        sh 'gulp mocha-tests'
-      }
-  }
-  post {
-    success {
-      junit 'test/coverage/jasmine-results.xml'
-      junit 'test/coverage/mocha-results.xml'
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
-  }
 }
