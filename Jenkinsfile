@@ -1,21 +1,15 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+        echo 'Building..'
+      }
     }
+    stage('') {
+      steps {
+        sh 'docker run --rm -v /tmp:/tmp aquasec/scanner-cli:2.0 --registry "Docker Hub" -image mongo:latest --host https://train.aquasec.com/ --user $USER --password $PASSWORD --show-negligible --htmlfile out.html --jsonfile out.json'
+      }
+    }
+  }
 }
