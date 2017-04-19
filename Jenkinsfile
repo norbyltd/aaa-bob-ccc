@@ -6,6 +6,10 @@ pipeline {
         echo 'Building..'
       }
     }
-    
+    stage('scan') {
+      steps {
+        sh 'ls'
+      }
+    }
   }
 }
