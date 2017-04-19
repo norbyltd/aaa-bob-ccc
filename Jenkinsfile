@@ -8,7 +8,7 @@ pipeline {
     }
     stage('scan') {
       steps {
-        sh 'ls'
+        sh 'ls /tmp'
       }
     }
   }
