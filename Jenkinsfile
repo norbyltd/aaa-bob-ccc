@@ -8,7 +8,7 @@ pipeline {
     }
     stage('scan') {
       steps {
-        sh 'ls /tmp'
+        sh 'docker run mosheco/my-docker-whale'
       }
     }
   }
