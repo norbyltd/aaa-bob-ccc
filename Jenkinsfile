@@ -13,7 +13,6 @@ pipeline {
     }
     stage('copy') {
       steps {
-        archiveArtifacts '/tmp/out.*'
         sh 'cp /tmp/out.* .'
       }
     }
