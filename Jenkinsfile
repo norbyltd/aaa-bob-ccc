@@ -11,9 +11,15 @@ pipeline {
         sh 'docker run --rm -v /tmp:/tmp aquasec/scanner-cli:2.0 --registry "Docker Hub" -image mongo:latest --host https://train.aquasec.com/ --user scanner --password scanner1234 --show-negligible --htmlfile out.html --jsonfile out.json'
       }
     }
-    stage('archive') {
+    stage('copy') {
       steps {
         archiveArtifacts '/tmp/out.*'
+        sh 'cp /tmp/out.* .'
+      }
+    }
+    stage('archive') {
+      steps {
+        archiveArtifacts 'out.*'
       }
     }
   }
