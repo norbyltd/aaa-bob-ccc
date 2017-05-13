@@ -23,7 +23,7 @@ pipeline {
     }
   }
   environment {
-    USER = 'scanner'
-    PASSWORD = 'scanner1234'
+    USER = 'moshe'
+    PASSWORD = 'moshe1234'
   }
 }
